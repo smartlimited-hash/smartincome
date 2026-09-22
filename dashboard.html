@@ -1,1209 +1,651 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="rw">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Smart Income Training</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Secure Payment</title>
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
 body{
-background:#f1f4fa;
-color:#18345d;
+    min-height:100vh;
+    padding:25px 15px 45px;
+    background:
+        radial-gradient(circle at 10% 0%,#5da9ff55,transparent 30%),
+        linear-gradient(145deg,#06142d,#0b57d0 55%,#16b7ff);
 }
 
-.app{
-max-width:700px;
-margin:auto;
-min-height:100vh;
-background:#f1f4fa;
+.container{
+    width:100%;
+    max-width:520px;
+    margin:auto;
 }
-
-/* HEADER */
 
 .header{
-background:white;
-padding:27px 24px 22px;
-display:flex;
-align-items:center;
-justify-content:space-between;
+    text-align:center;
+    color:white;
+    margin-bottom:22px;
 }
 
 .logo{
-font-size:23px;
-line-height:1.18;
-font-weight:800;
-color:#17448e;
+    width:72px;
+    height:72px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:22px;
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.25);
+    backdrop-filter:blur(12px);
+    font-size:31px;
+    box-shadow:0 15px 35px #0003;
 }
 
-.logo span{
-display:block;
+.header h1{
+    margin-top:15px;
+    font-size:29px;
 }
 
-.profile{
-display:flex;
-align-items:center;
-gap:9px;
-background:#f1f3f8;
-padding:8px 13px 8px 8px;
-border-radius:30px;
+.header p{
+    margin-top:7px;
+    font-size:14px;
+    opacity:.82;
 }
 
-.avatar{
-width:42px;
-height:42px;
-border-radius:50%;
-background:#2559c7;
-color:white;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:19px;
-font-weight:600;
+.main-card{
+    background:#fff;
+    border-radius:30px;
+    padding:22px;
+    box-shadow:0 25px 65px #0004;
 }
 
-.profile-name{
-font-size:14px;
-line-height:1.25;
-font-weight:600;
-color:#46536a;
+.supervisor{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 17px;
+    margin-bottom:18px;
+    border-radius:17px;
+    background:#f4f8ff;
+    border:1px solid #e0eaff;
 }
 
-/* CONTAINER */
-
-.container{
-padding:0 28px 35px;
+.supervisor small{
+    color:#718096;
+    font-size:12px;
 }
 
-/* BALANCE */
-
-.balance-card{
-margin-top:5px;
-background:linear-gradient(135deg,#2965d5,#1647ad);
-color:white;
-padding:36px 28px 29px;
-border-radius:27px;
-position:relative;
-overflow:hidden;
-box-shadow:0 12px 25px rgba(24,75,170,.22);
-}
-
-.balance-card:before{
-content:"";
-position:absolute;
-width:270px;
-height:270px;
-right:-85px;
-top:-105px;
-border-radius:50%;
-background:rgba(255,255,255,.08);
-}
-
-.balance-card:after{
-content:"";
-position:absolute;
-width:230px;
-height:230px;
-left:-105px;
-bottom:-150px;
-border-radius:50%;
-background:rgba(255,255,255,.06);
-}
-
-.balance-title{
-text-align:center;
-font-size:18px;
-opacity:.88;
-position:relative;
-z-index:2;
-}
-
-.balance{
-text-align:center;
-font-size:37px;
-font-weight:800;
-margin:7px 0 27px;
-position:relative;
-z-index:2;
-}
-
-.balance-actions{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:22px;
-position:relative;
-z-index:2;
-}
-
-.balance-btn{
-border:none;
-padding:17px 10px;
-border-radius:18px;
-font-size:17px;
-font-weight:700;
-cursor:pointer;
-}
-
-.withdraw-btn{
-background:rgba(255,255,255,.18);
-color:white;
-}
-
-.deposit-btn{
-background:white;
-color:#16469f;
-}
-
-.balance-btn:active{
-transform:scale(.97);
-}
-
-/* SUMMARY */
-
-.summary{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-margin-top:20px;
-}
-
-.summary-box{
-background:white;
-padding:22px 15px;
-border-radius:24px;
-text-align:center;
-box-shadow:0 7px 18px rgba(20,55,100,.08);
-}
-
-.summary-title{
-color:#778294;
-font-size:13px;
-font-weight:600;
-margin-bottom:9px;
-}
-
-.summary-value{
-font-size:24px;
-font-weight:800;
-color:#164a9d;
-}
-
-.profit{
-color:#18a66b;
-}
-
-.small-btn{
-width:100%;
-margin-top:17px;
-border:0;
-border-radius:16px;
-padding:13px 7px;
-background:#e7eefc;
-color:#194b9f;
-font-weight:700;
-font-size:14px;
-cursor:pointer;
-}
-
-.disabled{
-background:#cbd5e2;
-color:white;
-cursor:not-allowed;
-}
-
-/* QUICK ACTIONS */
-
-.section-title{
-margin:30px 0 15px;
-font-size:17px;
-font-weight:700;
-color:#667187;
-letter-spacing:.5px;
-}
-
-.quick-actions{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:13px;
-}
-
-.quick{
-text-align:center;
-cursor:pointer;
-}
-
-.quick-icon{
-width:70px;
-height:70px;
-margin:auto;
-border-radius:21px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:32px;
-box-shadow:0 8px 15px rgba(0,0,0,.08);
-}
-
-.q1{
-background:linear-gradient(135deg,#ff5c63,#ed414a);
-}
-
-.q2{
-background:linear-gradient(135deg,#35d879,#16bb65);
-}
-
-.q3{
-background:linear-gradient(135deg,#a77af0,#7444d9);
-}
-
-.q4{
-background:linear-gradient(135deg,#3c82e8,#1553ba);
-}
-
-.quick p{
-margin-top:9px;
-font-size:12px;
-font-weight:600;
-color:#46546b;
-}
-
-/* TRANSACTIONS */
-
-.transactions{
-background:white;
-margin-top:28px;
-border-radius:24px;
-padding:20px;
-box-shadow:0 7px 18px rgba(20,55,100,.08);
-}
-
-.transaction-title{
-display:flex;
-align-items:center;
-gap:8px;
-font-size:17px;
-font-weight:700;
-margin-bottom:12px;
-color:#28528e;
-}
-
-.live-dot{
-width:10px;
-height:10px;
-background:#f05a68;
-border-radius:50%;
-}
-
-.transaction{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:8px;
-padding:15px 0;
-border-bottom:1px solid #edf0f5;
-}
-
-.transaction:last-child{
-border-bottom:none;
-}
-
-.user{
-font-weight:600;
-color:#253a5a;
-font-size:13px;
-}
-
-.type{
-display:inline-block;
-margin-left:6px;
-padding:5px 8px;
-border-radius:9px;
-background:#e8effd;
-color:#4267a6;
-font-size:9px;
-font-weight:700;
-}
-
-.deposit{
-background:#dff7ec;
-color:#21a36d;
+.supervisor strong{
+    color:#0757b8;
+    font-size:16px;
 }
 
 .amount{
-font-size:13px;
-font-weight:800;
-color:#182b48;
-white-space:nowrap;
+    text-align:center;
+    padding:21px 15px;
+    border-radius:22px;
+    background:linear-gradient(135deg,#eef6ff,#f8fbff);
+    border:1px solid #dceaff;
+    margin-bottom:20px;
 }
 
-/* LOGOUT */
-
-.logout{
-width:100%;
-margin-top:25px;
-border:0;
-padding:15px;
-border-radius:16px;
-background:#f04444;
-color:white;
-font-size:16px;
-font-weight:700;
-cursor:pointer;
+.amount span{
+    display:block;
+    color:#7b8794;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:1px;
 }
 
-/* MODAL */
-
-.modal{
-position:fixed;
-inset:0;
-background:rgba(10,30,65,.62);
-backdrop-filter:blur(6px);
-display:none;
-align-items:center;
-justify-content:center;
-padding:20px;
-z-index:9999;
+.amount h2{
+    margin-top:6px;
+    color:#0757b8;
+    font-size:34px;
 }
 
-.modal.show{
-display:flex;
+.section-title{
+    font-size:17px;
+    font-weight:bold;
+    margin-bottom:13px;
 }
 
-.investment-box{
-width:100%;
-max-width:430px;
-background:white;
-border-radius:28px;
-padding:25px;
-box-shadow:0 25px 70px rgba(0,0,0,.25);
-}
-
-.modal-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:22px;
-}
-
-.modal-title{
-font-size:22px;
-font-weight:800;
-color:#173f82;
-}
-
-.close{
-width:38px;
-height:38px;
-border:0;
-border-radius:50%;
-background:#eef3fb;
-color:#42618e;
-font-size:21px;
-cursor:pointer;
-}
-
-.modal-subtitle{
-color:#7a8799;
-font-size:13px;
-margin-bottom:18px;
-}
-
-.amount-label{
-display:block;
-font-size:13px;
-font-weight:700;
-color:#334e75;
-margin-bottom:8px;
-}
-
-.amount-input{
-width:100%;
-height:55px;
-border:1px solid #dbe4f1;
-border-radius:14px;
-padding:0 16px;
-outline:none;
-font-size:16px;
-color:#173f82;
-background:#f8faff;
-margin-bottom:20px;
-}
-
-.method-title{
-font-size:14px;
-font-weight:700;
-color:#334e75;
-margin-bottom:10px;
-}
-
-.methods{
-display:grid;
-gap:10px;
+.payment{
+    padding:18px;
+    margin-bottom:14px;
+    border:1px solid #e5e7eb;
+    border-radius:21px;
+    background:#fff;
+    box-shadow:0 5px 16px #0000000a;
 }
 
 .method{
-border:1.5px solid #e0e7f1;
-border-radius:15px;
-padding:14px;
-display:flex;
-align-items:center;
-gap:12px;
-cursor:pointer;
-}
-
-.method.selected{
-border-color:#1e63c9;
-background:#edf5ff;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:17px;
 }
 
 .method-icon{
-width:43px;
-height:43px;
-border-radius:12px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:22px;
-background:#e8f0ff;
+    width:44px;
+    height:44px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    font-size:20px;
 }
 
-.method-info{
-flex:1;
+.mtn{
+    background:#ffd21c;
+}
+
+.airtel{
+    background:#e21b2d;
+    color:white;
 }
 
 .method-name{
-font-size:14px;
-font-weight:700;
-color:#263f64;
+    font-size:16px;
+    font-weight:bold;
 }
 
-.method-desc{
-font-size:11px;
-color:#8a97a9;
-margin-top:2px;
+.method-sub{
+    margin-top:3px;
+    color:#8a94a3;
+    font-size:11px;
 }
 
-.radio{
-width:19px;
-height:19px;
-border:2px solid #c3cedd;
-border-radius:50%;
+.send-text{
+    color:#777;
+    font-size:12px;
+    margin-bottom:6px;
 }
 
-.method.selected .radio{
-border:5px solid #1762c6;
+.number-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
 }
 
-.continue-btn{
-width:100%;
-height:54px;
-border:0;
-border-radius:15px;
-margin-top:22px;
-background:linear-gradient(135deg,#2965d5,#1647ad);
-color:white;
-font-size:15px;
-font-weight:800;
-cursor:pointer;
+.number{
+    font-size:23px;
+    font-weight:bold;
+    letter-spacing:.4px;
 }
 
-.secure{
-text-align:center;
-margin-top:13px;
-color:#8b98aa;
-font-size:11px;
+.copy{
+    border:0;
+    border-radius:12px;
+    padding:10px 15px;
+    background:#edf4ff;
+    color:#0757b8;
+    font-size:11px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-/* MOBILE */
-
-@media(max-width:480px){
-
-.header{
-padding:22px 18px 19px;
+.ussd{
+    margin-top:15px;
+    padding:13px 14px;
+    border-radius:13px;
+    background:#f5f8fc;
+    color:#0757b8;
+    font-size:14px;
+    font-weight:bold;
+    word-break:break-all;
 }
 
-.logo{
-font-size:18px;
+.copy-ussd{
+    width:100%;
+    margin-top:9px;
+    padding:12px;
+    border:0;
+    border-radius:12px;
+    background:#0757b8;
+    color:white;
+    font-size:12px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-.profile-name{
-font-size:11px;
+.transaction-section{
+    margin-top:22px;
 }
 
-.avatar{
-width:37px;
-height:37px;
-font-size:16px;
+label{
+    display:block;
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:bold;
 }
 
-.container{
-padding:0 18px 30px;
+.input-box{
+    position:relative;
 }
 
-.balance-card{
-padding:31px 19px 24px;
-border-radius:25px;
+.input-box span{
+    position:absolute;
+    left:15px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:18px;
 }
 
-.balance-title{
-font-size:16px;
+input{
+    width:100%;
+    height:56px;
+    padding:0 15px 0 44px;
+    border:1px solid #d8dee8;
+    border-radius:15px;
+    outline:none;
+    font-size:15px;
 }
 
-.balance{
-font-size:31px;
+input:focus{
+    border-color:#0757b8;
+    box-shadow:0 0 0 4px #0757b814;
 }
 
-.balance-actions{
-gap:12px;
+.confirm{
+    width:100%;
+    height:58px;
+    margin-top:17px;
+    border:0;
+    border-radius:16px;
+    background:linear-gradient(135deg,#0757b8,#159dff);
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 10px 24px #0757b833;
 }
 
-.balance-btn{
-font-size:15px;
-padding:16px 5px;
+.confirm:active{
+    transform:scale(.98);
 }
 
-.summary{
-gap:13px;
+.message{
+    display:none;
+    margin-top:13px;
+    padding:13px;
+    border-radius:13px;
+    background:#eef8f0;
+    color:#28733b;
+    text-align:center;
+    font-size:12px;
 }
 
-.summary-box{
-padding:19px 9px;
+.security{
+    text-align:center;
+    margin-top:17px;
+    color:#8a94a3;
+    font-size:11px;
+    line-height:1.6;
 }
 
-.summary-title{
-font-size:11px;
+.footer{
+    text-align:center;
+    color:white;
+    opacity:.7;
+    font-size:11px;
+    margin-top:18px;
 }
 
-.summary-value{
-font-size:20px;
-}
+@media(max-width:430px){
 
-.small-btn{
-font-size:12px;
-}
+    .main-card{
+        padding:18px;
+        border-radius:27px;
+    }
 
-.quick-actions{
-gap:4px;
-}
+    .number{
+        font-size:20px;
+    }
 
-.quick-icon{
-width:60px;
-height:60px;
-font-size:27px;
-border-radius:18px;
-}
+    .header h1{
+        font-size:27px;
+    }
 
-.quick p{
-font-size:10px;
+    .amount h2{
+        font-size:31px;
+    }
 }
-
-.transactions{
-padding:17px 13px;
-}
-
-.transaction{
-padding:14px 0;
-}
-
-.user{
-font-size:11px;
-}
-
-.type{
-font-size:8px;
-padding:4px 6px;
-}
-
-.amount{
-font-size:11px;
-}
-
-.investment-box{
-padding:21px;
-}
-
-.modal-title{
-font-size:20px;
-}
-
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="app">
-
-<!-- HEADER -->
-
-<div class="header">
-
-<div class="logo">
-<span>SMART INCOME</span>
-<span>TRAINING</span>
-</div>
-
-<div class="profile">
-
-<div class="avatar">
-C
-</div>
-
-<div class="profile-name">
-Cynthia<br>
-UWERA
-</div>
-
-</div>
-
-</div>
-
-
 <div class="container">
 
-<!-- BALANCE -->
+    <div class="header">
 
-<div class="balance-card">
+        <div class="logo">💳</div>
 
-<div class="balance-title">
-Available Balance
-</div>
+        <h1>Secure Payment</h1>
 
-<div class="balance">
-RWF 47,500
-</div>
+        <p>Choose your payment method below</p>
 
-<div class="balance-actions">
+    </div>
 
-<button
-class="balance-btn withdraw-btn"
-onclick="window.location.href='withdrawal.html'">
-Withdraw
-</button>
 
-<button
-class="balance-btn deposit-btn"
-onclick="openDeposit()">
-Deposit
-</button>
+    <div class="main-card">
 
-</div>
+        <div class="supervisor">
+            <small>Payment Supervisor</small>
+            <strong>Gilbert</strong>
+        </div>
 
-</div>
 
+        <div class="amount">
 
-<!-- BONUS / PROFIT -->
+            <span>PAYMENT AMOUNT</span>
 
-<div class="summary">
+            <h2>3900 RWF</h2>
 
-<div class="summary-box">
+        </div>
 
-<div class="summary-title">
-BONUS ($6)
-</div>
 
-<div class="summary-value">
-RWF 9,000
-</div>
+        <div class="section-title">
+            Payment Methods
+        </div>
 
-<button
-class="small-btn"
-onclick="window.location.href='investment.html'">
-Investment Plan
-</button>
 
-</div>
+        <!-- MTN -->
 
+        <div class="payment">
 
-<div class="summary-box">
+            <div class="method">
 
-<div class="summary-title">
-PROFIT (FROM TASK)
-</div>
+                <div class="method-icon mtn">
+                    M
+                </div>
 
-<div class="summary-value profit">
-RWF 0
-</div>
+                <div>
 
-<button class="small-btn disabled">
-Claim
-</button>
+                    <div class="method-name">
+                        MTN Mobile Money
+                    </div>
 
-</div>
+                    <div class="method-sub">
+                        Send the amount using MTN
+                    </div>
 
-</div>
+                </div>
 
+            </div>
 
-<!-- QUICK ACTIONS -->
 
-<div class="section-title">
-QUICK ACTIONS
-</div>
+            <div class="send-text">
+                Send 3900 RWF to:
+            </div>
 
-<div class="quick-actions">
 
-<div
-class="quick"
-onclick="window.location.href='withdrawal.html'">
+            <div class="number-row">
 
-<div class="quick-icon q1">
-💸
-</div>
+                <div class="number">
+                    2233761
+                </div>
 
-<p>
-Withdraw
-</p>
+                <button
+                    class="copy"
+                    type="button"
+                    onclick="copyText('2233761')">
 
-</div>
+                    COPY
 
+                </button>
 
-<div
-class="quick"
-onclick="window.location.href='investment.html'">
+            </div>
 
-<div class="quick-icon q2">
-📈
-</div>
 
-<p>
-Investment
-</p>
+            <div class="ussd">
+                *182*8*1*2233761#
+            </div>
 
-</div>
 
+            <button
+                class="copy-ussd"
+                type="button"
+                onclick="copyText('*182*8*1*2233761#')">
 
-<!-- TASK BUTTON -->
+                📋 Copy USSD Code
 
-<div
-class="quick"
-onclick="window.location.href='tasks.html'">
+            </button>
 
-<div class="quick-icon q3">
-📋
-</div>
+        </div>
 
-<p>
-Tasks
-</p>
 
-</div>
+        <!-- AIRTEL -->
 
+        <div class="payment">
 
-<div
-class="quick"
-onclick="openDeposit()">
+            <div class="method">
 
-<div class="quick-icon q4">
-💰
-</div>
+                <div class="method-icon airtel">
+                    A
+                </div>
 
-<p>
-Deposit
-</p>
+                <div>
 
-</div>
+                    <div class="method-name">
+                        Airtel Money
+                    </div>
 
-</div>
+                    <div class="method-sub">
+                        Send the amount using Airtel
+                    </div>
 
+                </div>
 
-<!-- TRANSACTIONS -->
+            </div>
 
-<div class="transactions">
 
-<div class="transaction-title">
+            <div class="send-text">
+                Send 3900 RWF to:
+            </div>
 
-<span class="live-dot"></span>
 
-TRANSACTIONS
+            <div class="number-row">
 
-</div>
+                <div class="number">
+                    0780519822
+                </div>
 
-<!-- SAMPLE DATA -->
+                <button
+                    class="copy"
+                    type="button"
+                    onclick="copyText('0780519822')">
 
-<div class="transaction">
+                    COPY
 
-<div>
+                </button>
 
-<span class="user">
-NANSI ***
-</span>
+            </div>
 
-<span class="type">
-INVESTED
-</span>
 
-</div>
+            <div class="ussd">
+                *182*1*2*0780519822#
+            </div>
 
-<div class="amount">
-200,000 RWF
-</div>
 
-</div>
+            <button
+                class="copy-ussd"
+                type="button"
+                onclick="copyText('*182*1*2*0780519822#')">
 
+                📋 Copy USSD Code
 
-<div class="transaction">
+            </button>
 
-<div>
+        </div>
 
-<span class="user">
-MANZI ***
-</span>
 
-<span class="type">
-INVESTED
-</span>
+        <!-- TRANSACTION ID -->
 
-</div>
+        <div class="transaction-section">
 
-<div class="amount">
-712,000 RWF
-</div>
+            <label for="transaction">
+                Transaction ID
+            </label>
 
-</div>
 
+            <div class="input-box">
 
-<div class="transaction">
+                <span>🔢</span>
 
-<div>
+                <input
+                    id="transaction"
+                    type="text"
+                    placeholder="Enter your Transaction ID"
+                    autocomplete="off"
+                >
 
-<span class="user">
-AISHA ***
-</span>
+            </div>
 
-<span class="type deposit">
-DEPOSIT
-</span>
 
-</div>
+            <button
+                class="confirm"
+                type="button"
+                onclick="confirmPayment()">
 
-<div class="amount">
-300,000 RWF
-</div>
+                ✓ Confirm Payment
 
-</div>
+            </button>
 
 
-<div class="transaction">
+            <div
+                class="message"
+                id="message">
+            </div>
 
-<div>
+        </div>
 
-<span class="user">
-PATRICK ***
-</span>
 
-<span class="type deposit">
-DEPOSIT
-</span>
+        <div class="security">
+            🔒 Please double-check your Transaction ID
+            before submitting.
+        </div>
 
-</div>
+    </div>
 
-<div class="amount">
-400,100 RWF
-</div>
 
-</div>
-
-
-<div class="transaction">
-
-<div>
-
-<span class="user">
-ERIC ***
-</span>
-
-<span class="type deposit">
-DEPOSIT
-</span>
-
-</div>
-
-<div class="amount">
-150,000 RWF
-</div>
-
-</div>
-
-</div>
-
-
-<!-- LOGOUT -->
-
-<button
-class="logout"
-onclick="logout()">
-
-🚪 Logout
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- DEPOSIT MODAL -->
-
-<div class="modal" id="depositModal">
-
-<div class="investment-box">
-
-<div class="modal-header">
-
-<div class="modal-title">
-Investment Deposit
-</div>
-
-<button
-class="close"
-onclick="closeDeposit()">
-×
-</button>
-
-</div>
-
-
-<div class="modal-subtitle">
-Choose your investment amount and preferred payment method.
-</div>
-
-
-<label class="amount-label">
-Investment Amount
-</label>
-
-<input
-class="amount-input"
-type="number"
-id="investmentAmount"
-placeholder="Enter amount in RWF"
-min="1">
-
-
-<div class="method-title">
-Select Payment Method
-</div>
-
-
-<div class="methods">
-
-<div
-class="method"
-onclick="selectMethod(this,'Mobile Money')">
-
-<div class="method-icon">
-📱
-</div>
-
-<div class="method-info">
-
-<div class="method-name">
-Mobile Money
-</div>
-
-<div class="method-desc">
-Pay using Mobile Money
-</div>
-
-</div>
-
-<div class="radio"></div>
-
-</div>
-
-
-<div
-class="method"
-onclick="selectMethod(this,'Bank Transfer')">
-
-<div class="method-icon">
-🏦
-</div>
-
-<div class="method-info">
-
-<div class="method-name">
-Bank Transfer
-</div>
-
-<div class="method-desc">
-Pay directly through your bank
-</div>
-
-</div>
-
-<div class="radio"></div>
-
-</div>
-
-
-<div
-class="method"
-onclick="selectMethod(this,'Card')">
-
-<div class="method-icon">
-💳
-</div>
-
-<div class="method-info">
-
-<div class="method-name">
-Card Payment
-</div>
-
-<div class="method-desc">
-Visa / Mastercard
-</div>
-
-</div>
-
-<div class="radio"></div>
-
-</div>
-
-</div>
-
-
-<button
-class="continue-btn"
-onclick="continuePayment()">
-
-CONTINUE TO PAYMENT →
-
-</button>
-
-
-<div class="secure">
-🔒 Secure payment process
-</div>
-
-</div>
+    <div class="footer">
+        Payment Information
+    </div>
 
 </div>
 
 
 <script>
 
-let selectedMethod = "";
+/* COPY */
 
+function copyText(text){
 
-/* OPEN DEPOSIT */
+    if(navigator.clipboard){
 
-function openDeposit(){
+        navigator.clipboard.writeText(text)
+        .then(function(){
 
-document
-.getElementById("depositModal")
-.classList.add("show");
+            alert("Copied successfully");
 
-}
+        })
+        .catch(function(){
 
+            alert("Unable to copy");
 
-/* CLOSE DEPOSIT */
+        });
 
-function closeDeposit(){
+    }else{
 
-document
-.getElementById("depositModal")
-.classList.remove("show");
+        alert("Copy is not supported in this Preview.");
 
-}
-
-
-/* SELECT METHOD */
-
-function selectMethod(element,method){
-
-document
-.querySelectorAll(".method")
-.forEach(function(item){
-
-item.classList.remove("selected");
-
-});
-
-element.classList.add("selected");
-
-selectedMethod = method;
+    }
 
 }
 
 
-/* PAYMENT */
+/* CONFIRM PAYMENT */
 
-function continuePayment(){
+function confirmPayment(){
 
-let amount =
-document.getElementById("investmentAmount").value;
+    const transaction =
+        document
+        .getElementById("transaction")
+        .value
+        .trim();
 
-if(amount === "" || Number(amount) <= 0){
-
-alert("Please enter your investment amount.");
-
-return;
-
-}
-
-if(selectedMethod === ""){
-
-alert("Please select a payment method.");
-
-return;
-
-}
-
-localStorage.setItem(
-"investmentAmount",
-amount
-);
-
-localStorage.setItem(
-"paymentMethod",
-selectedMethod
-);
-
-window.location.href = "payment.html";
-
-}
+    const message =
+        document.getElementById("message");
 
 
-/* LOGOUT */
+    if(transaction === ""){
 
-function logout(){
+        alert("Please enter your Transaction ID.");
 
-localStorage.removeItem("investmentAmount");
-localStorage.removeItem("paymentMethod");
+        return;
 
-window.location.href = "index.html";
-
-}
+    }
 
 
-/* CLOSE MODAL OUTSIDE */
+    /*
+      Save the transaction information
+      so it can be used on the Dashboard.
+    */
 
-document
-.getElementById("depositModal")
-.addEventListener("click",function(e){
+    localStorage.setItem(
+        "transactionId",
+        transaction
+    );
 
-if(e.target === this){
+    localStorage.setItem(
+        "paymentSubmitted",
+        "true"
+    );
 
-closeDeposit();
+
+    message.style.display = "block";
+
+    message.innerHTML =
+        "✓ Transaction ID submitted successfully. Opening Dashboard...";
+
+
+    /*
+      Acode Preview:
+      Dashboard = index.html
+    */
+
+    setTimeout(function(){
+
+        window.location.href = "index.html";
+
+    }, 500);
 
 }
-
-});
 
 </script>
 
 </body>
 </html>
+
+Uko ubishyira muri Acode:
+
+1. Fungura folder ya project.
+2. Kora file yitwa "payment.html".
+3. Siba code yari irimo yose.
+4. Paste iyi code yose.
+5. Dashboard yawe uyite "index.html".
+6. Muri Preview, fungura "payment.html".
+7. Andika Transaction ID → Confirm Payment → izahita ijya kuri "index.html".
+
+Ibi bikora local navigation muri Acode Preview, aho kwishingikiriza kuri GitHub URL.
