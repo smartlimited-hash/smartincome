@@ -1,323 +1,362 @@
 <!DOCTYPE html>
-<html lang="rw">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Secure Payment</title>
+<title>Onafriq Mauritius</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,sans-serif;
+    font-family:"Poppins",sans-serif;
 }
 
 body{
-    min-height:100vh;
-    padding:25px 15px 45px;
-    background:
-        radial-gradient(circle at 10% 0%,#5da9ff55,transparent 30%),
-        linear-gradient(145deg,#06142d,#0b57d0 55%,#16b7ff);
+    background:#eef4ff;
+    color:#18345d;
 }
 
-.container{
+.app{
     width:100%;
     max-width:520px;
     margin:auto;
+    min-height:100vh;
+    padding-bottom:90px;
 }
 
+/* ================= HEADER ================= */
+
 .header{
-    text-align:center;
+    background:linear-gradient(135deg,#073b82,#1976d2);
     color:white;
-    margin-bottom:22px;
+    padding:24px 20px 70px;
+    border-radius:0 0 35px 35px;
+}
+
+.header-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 .logo{
-    width:72px;
-    height:72px;
-    margin:auto;
+    font-size:19px;
+    font-weight:800;
+}
+
+.profile-circle{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    background:white;
+    color:#0b4a91;
     display:flex;
-    align-items:center;
     justify-content:center;
-    border-radius:22px;
-    background:rgba(255,255,255,.16);
-    border:1px solid rgba(255,255,255,.25);
-    backdrop-filter:blur(12px);
-    font-size:31px;
-    box-shadow:0 15px 35px #0003;
-}
-
-.header h1{
-    margin-top:15px;
-    font-size:29px;
-}
-
-.header p{
-    margin-top:7px;
-    font-size:14px;
-    opacity:.82;
-}
-
-.main-card{
-    background:#fff;
-    border-radius:30px;
-    padding:22px;
-    box-shadow:0 25px 65px #0004;
-}
-
-.supervisor{
-    display:flex;
-    justify-content:space-between;
     align-items:center;
-    padding:15px 17px;
-    margin-bottom:18px;
-    border-radius:17px;
-    background:#f4f8ff;
-    border:1px solid #e0eaff;
+    font-weight:800;
+    cursor:pointer;
 }
 
-.supervisor small{
-    color:#718096;
+.welcome{
+    margin-top:24px;
+}
+
+.welcome small{
+    opacity:.85;
     font-size:12px;
 }
 
-.supervisor strong{
-    color:#0757b8;
-    font-size:16px;
+.welcome h2{
+    margin-top:4px;
+    font-size:23px;
 }
 
-.amount{
-    text-align:center;
-    padding:21px 15px;
-    border-radius:22px;
-    background:linear-gradient(135deg,#eef6ff,#f8fbff);
-    border:1px solid #dceaff;
-    margin-bottom:20px;
+/* ================= BALANCE ================= */
+
+.balance-card{
+    margin:-45px 18px 20px;
+    padding:23px;
+    background:white;
+    border-radius:24px;
+    box-shadow:0 12px 30px rgba(25,75,140,.14);
 }
 
-.amount span{
-    display:block;
-    color:#7b8794;
+.balance-label{
+    color:#7a8799;
+    font-size:12px;
+}
+
+.balance{
+    color:#12478b;
+    font-size:31px;
+    font-weight:800;
+    margin:5px 0 10px;
+}
+
+.status{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:#e6f8ef;
+    color:#078b50;
+    padding:6px 11px;
+    border-radius:20px;
     font-size:11px;
-    font-weight:bold;
-    letter-spacing:1px;
+    font-weight:600;
 }
 
-.amount h2{
-    margin-top:6px;
-    color:#0757b8;
-    font-size:34px;
+/* ================= CONTENT ================= */
+
+.content{
+    padding:0 18px;
 }
 
 .section-title{
-    font-size:17px;
-    font-weight:bold;
-    margin-bottom:13px;
-}
-
-.payment{
-    padding:18px;
-    margin-bottom:14px;
-    border:1px solid #e5e7eb;
-    border-radius:21px;
-    background:#fff;
-    box-shadow:0 5px 16px #0000000a;
-}
-
-.method{
     display:flex;
+    justify-content:space-between;
     align-items:center;
-    gap:12px;
-    margin-bottom:17px;
+    margin:20px 0 12px;
 }
 
-.method-icon{
+.section-title h3{
+    font-size:17px;
+}
+
+.section-title span{
+    color:#1976d2;
+    font-size:11px;
+    cursor:pointer;
+}
+
+/* ================= ACTIONS ================= */
+
+.actions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:13px;
+}
+
+.action-card{
+    background:white;
+    padding:17px;
+    border-radius:19px;
+    box-shadow:0 6px 18px rgba(30,70,120,.07);
+}
+
+.action-icon{
     width:44px;
     height:44px;
+    background:#eaf2ff;
+    color:#12519c;
     border-radius:14px;
     display:flex;
-    align-items:center;
     justify-content:center;
-    font-weight:bold;
-    font-size:20px;
+    align-items:center;
+    font-size:21px;
+    margin-bottom:10px;
 }
 
-.mtn{
-    background:#ffd21c;
+.action-card h4{
+    font-size:14px;
 }
 
-.airtel{
-    background:#e21b2d;
-    color:white;
-}
-
-.method-name{
-    font-size:16px;
-    font-weight:bold;
-}
-
-.method-sub{
+.action-card p{
+    color:#8290a3;
+    font-size:10px;
+    line-height:1.5;
     margin-top:3px;
-    color:#8a94a3;
+}
+
+.action-btn{
+    width:100%;
+    border:0;
+    background:#1455a0;
+    color:white;
+    padding:10px;
+    border-radius:11px;
+    margin-top:12px;
     font-size:11px;
+    font-weight:600;
+    cursor:pointer;
 }
 
-.send-text{
-    color:#777;
-    font-size:12px;
-    margin-bottom:6px;
+.action-btn.green{
+    background:#079455;
 }
 
-.number-row{
+.action-btn.orange{
+    background:#f59e0b;
+}
+
+/* ================= TASK CARD ================= */
+
+.task-card{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg,#103f83,#2484df);
+    color:white;
+    padding:21px;
+    border-radius:22px;
+}
+
+.task-card:after{
+    content:"";
+    position:absolute;
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    right:-45px;
+    top:-45px;
+}
+
+.task-card small{
+    font-size:9px;
+    opacity:.75;
+}
+
+.task-card h3{
+    font-size:18px;
+    margin:5px 0;
+}
+
+.task-card p{
+    font-size:11px;
+    opacity:.85;
+    max-width:330px;
+}
+
+.task-btn{
+    display:inline-block;
+    background:white;
+    color:#124786;
+    text-decoration:none;
+    padding:10px 17px;
+    border-radius:11px;
+    margin-top:14px;
+    font-size:11px;
+    font-weight:700;
+}
+
+/* ================= TRANSACTIONS ================= */
+
+.transaction{
+    background:white;
+    border-radius:17px;
+    padding:14px;
+    margin-bottom:10px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:10px;
+    box-shadow:0 5px 15px rgba(30,70,120,.05);
 }
 
-.number{
-    font-size:23px;
-    font-weight:bold;
-    letter-spacing:.4px;
+.transaction-left{
+    display:flex;
+    align-items:center;
+    gap:11px;
 }
 
-.copy{
-    border:0;
+.transaction-icon{
+    width:40px;
+    height:40px;
     border-radius:12px;
-    padding:10px 15px;
-    background:#edf4ff;
-    color:#0757b8;
-    font-size:11px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.ussd{
-    margin-top:15px;
-    padding:13px 14px;
-    border-radius:13px;
-    background:#f5f8fc;
-    color:#0757b8;
-    font-size:14px;
-    font-weight:bold;
-    word-break:break-all;
-}
-
-.copy-ussd{
-    width:100%;
-    margin-top:9px;
-    padding:12px;
-    border:0;
-    border-radius:12px;
-    background:#0757b8;
-    color:white;
-    font-size:12px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.transaction-section{
-    margin-top:22px;
-}
-
-label{
-    display:block;
-    margin-bottom:8px;
-    font-size:14px;
-    font-weight:bold;
-}
-
-.input-box{
-    position:relative;
-}
-
-.input-box span{
-    position:absolute;
-    left:15px;
-    top:50%;
-    transform:translateY(-50%);
+    background:#eaf2ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     font-size:18px;
 }
 
-input{
-    width:100%;
-    height:56px;
-    padding:0 15px 0 44px;
-    border:1px solid #d8dee8;
-    border-radius:15px;
-    outline:none;
-    font-size:15px;
-}
-
-input:focus{
-    border-color:#0757b8;
-    box-shadow:0 0 0 4px #0757b814;
-}
-
-.confirm{
-    width:100%;
-    height:58px;
-    margin-top:17px;
-    border:0;
-    border-radius:16px;
-    background:linear-gradient(135deg,#0757b8,#159dff);
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-    box-shadow:0 10px 24px #0757b833;
-}
-
-.confirm:active{
-    transform:scale(.98);
-}
-
-.message{
-    display:none;
-    margin-top:13px;
-    padding:13px;
-    border-radius:13px;
-    background:#eef8f0;
-    color:#28733b;
-    text-align:center;
+.transaction h4{
     font-size:12px;
 }
 
-.security{
-    text-align:center;
-    margin-top:17px;
-    color:#8a94a3;
-    font-size:11px;
-    line-height:1.6;
+.transaction small{
+    color:#8995a8;
+    font-size:9px;
 }
 
-.footer{
-    text-align:center;
-    color:white;
-    opacity:.7;
+.amount{
     font-size:11px;
-    margin-top:18px;
+    font-weight:700;
 }
 
-@media(max-width:430px){
+.plus{
+    color:#079455;
+}
 
-    .main-card{
-        padding:18px;
-        border-radius:27px;
+/* ================= BOTTOM NAV ================= */
+
+.bottom-nav{
+    position:fixed;
+    left:50%;
+    bottom:0;
+    transform:translateX(-50%);
+    width:100%;
+    max-width:520px;
+    height:76px;
+    background:white;
+    border-top:1px solid #e1e7ef;
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    align-items:center;
+    z-index:100;
+    box-shadow:0 -5px 20px rgba(0,0,0,.06);
+}
+
+.nav-item{
+    text-decoration:none;
+    color:#8995a8;
+    text-align:center;
+    font-size:9px;
+    font-weight:500;
+    cursor:pointer;
+}
+
+.nav-icon{
+    width:38px;
+    height:32px;
+    margin:auto;
+    border-radius:11px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:18px;
+}
+
+.nav-item.active{
+    color:#1455a0;
+    font-weight:700;
+}
+
+.nav-item.active .nav-icon{
+    background:#e7f0ff;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:360px){
+
+    .logo{
+        font-size:16px;
     }
 
-    .number{
-        font-size:20px;
+    .balance{
+        font-size:26px;
     }
 
-    .header h1{
-        font-size:27px;
+    .nav-item{
+        font-size:8px;
     }
 
-    .amount h2{
-        font-size:31px;
+    .nav-icon{
+        font-size:16px;
     }
 }
 </style>
@@ -325,327 +364,340 @@ input:focus{
 
 <body>
 
-<div class="container">
+<div class="app">
 
-    <div class="header">
+    <!-- HEADER -->
+    <header class="header">
 
-        <div class="logo">💳</div>
+        <div class="header-top">
 
-        <h1>Secure Payment</h1>
+            <div class="logo">
+                Onafriq Mauritius
+            </div>
 
-        <p>Choose your payment method below</p>
-
-    </div>
-
-
-    <div class="main-card">
-
-        <div class="supervisor">
-            <small>Payment Supervisor</small>
-            <strong>Gilbert</strong>
-        </div>
-
-
-        <div class="amount">
-
-            <span>PAYMENT AMOUNT</span>
-
-            <h2>3900 RWF</h2>
+            <div class="profile-circle"
+                 onclick="goTo('profile.html')">
+                S
+            </div>
 
         </div>
 
+        <div class="welcome">
+            <small>Welcome back 👋</small>
+            <h2>Good to see you!</h2>
+        </div>
 
+    </header>
+
+
+    <!-- BALANCE -->
+    <section class="balance-card">
+
+        <div class="balance-label">
+            Available Balance
+        </div>
+
+        <div class="balance">
+            47,500 RWF
+        </div>
+
+        <div class="status">
+            ● Account Active
+        </div>
+
+    </section>
+
+
+    <main class="content">
+
+        <!-- QUICK ACTIONS -->
         <div class="section-title">
-            Payment Methods
+            <h3>Quick Actions</h3>
         </div>
 
+        <div class="actions">
 
-        <!-- MTN -->
+            <!-- DEPOSIT -->
+            <div class="action-card">
 
-        <div class="payment">
+                <div class="action-icon">💰</div>
 
-            <div class="method">
+                <h4>Deposit</h4>
 
-                <div class="method-icon mtn">
-                    M
-                </div>
+                <p>
+                    Add money to your account
+                </p>
 
-                <div>
-
-                    <div class="method-name">
-                        MTN Mobile Money
-                    </div>
-
-                    <div class="method-sub">
-                        Send the amount using MTN
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="send-text">
-                Send 3900 RWF to:
-            </div>
-
-
-            <div class="number-row">
-
-                <div class="number">
-                    2233761
-                </div>
-
-                <button
-                    class="copy"
-                    type="button"
-                    onclick="copyText('2233761')">
-
-                    COPY
-
+                <button class="action-btn"
+                        onclick="goTo('investment.html')">
+                    Deposit
                 </button>
 
             </div>
 
 
-            <div class="ussd">
-                *182*8*1*2233761#
-            </div>
+            <!-- WITHDRAW -->
+            <div class="action-card">
 
+                <div class="action-icon">💸</div>
 
-            <button
-                class="copy-ussd"
-                type="button"
-                onclick="copyText('*182*8*1*2233761#')">
+                <h4>Withdraw</h4>
 
-                📋 Copy USSD Code
+                <p>
+                    Request your withdrawal
+                </p>
 
-            </button>
-
-        </div>
-
-
-        <!-- AIRTEL -->
-
-        <div class="payment">
-
-            <div class="method">
-
-                <div class="method-icon airtel">
-                    A
-                </div>
-
-                <div>
-
-                    <div class="method-name">
-                        Airtel Money
-                    </div>
-
-                    <div class="method-sub">
-                        Send the amount using Airtel
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="send-text">
-                Send 3900 RWF to:
-            </div>
-
-
-            <div class="number-row">
-
-                <div class="number">
-                    0780519822
-                </div>
-
-                <button
-                    class="copy"
-                    type="button"
-                    onclick="copyText('0780519822')">
-
-                    COPY
-
+                <button class="action-btn green"
+                        onclick="goTo('cashout.html')">
+                    Withdraw
                 </button>
 
             </div>
 
 
-            <div class="ussd">
-                *182*1*2*0780519822#
-            </div>
+            <!-- TASKS -->
+            <div class="action-card">
 
+                <div class="action-icon">📋</div>
 
-            <button
-                class="copy-ussd"
-                type="button"
-                onclick="copyText('*182*1*2*0780519822#')">
+                <h4>Tasks</h4>
 
-                📋 Copy USSD Code
+                <p>
+                    Complete available tasks
+                </p>
 
-            </button>
-
-        </div>
-
-
-        <!-- TRANSACTION ID -->
-
-        <div class="transaction-section">
-
-            <label for="transaction">
-                Transaction ID
-            </label>
-
-
-            <div class="input-box">
-
-                <span>🔢</span>
-
-                <input
-                    id="transaction"
-                    type="text"
-                    placeholder="Enter your Transaction ID"
-                    autocomplete="off"
-                >
+                <button class="action-btn orange"
+                        onclick="goTo('tasks.html')">
+                    View Tasks
+                </button>
 
             </div>
 
 
-            <button
-                class="confirm"
-                type="button"
-                onclick="confirmPayment()">
+            <!-- PROFILE -->
+            <div class="action-card">
 
-                ✓ Confirm Payment
+                <div class="action-icon">👤</div>
 
-            </button>
+                <h4>Profile</h4>
 
+                <p>
+                    Manage your account
+                </p>
 
-            <div
-                class="message"
-                id="message">
+                <button class="action-btn"
+                        onclick="goTo('profile.html')">
+                    Profile
+                </button>
+
             </div>
 
         </div>
 
 
-        <div class="security">
-            🔒 Please double-check your Transaction ID
-            before submitting.
+        <!-- TASK -->
+        <div class="section-title">
+            <h3>Today's Task</h3>
+
+            <span onclick="goTo('tasks.html')">
+                View all
+            </span>
         </div>
 
-    </div>
+        <div class="task-card">
+
+            <small>ONAFRIQ MAURITIUS</small>
+
+            <h3>
+                Complete Your Task 🎯
+            </h3>
+
+            <p>
+                Check your available tasks and complete
+                them from your Tasks page.
+            </p>
+
+            <a href="tasks.html" class="task-btn">
+                Start Task
+            </a>
+
+        </div>
 
 
-    <div class="footer">
-        Payment Information
-    </div>
+        <!-- TRANSACTIONS -->
+        <div class="section-title">
+
+            <h3>
+                Recent Transactions
+            </h3>
+
+            <span onclick="goTo('transactions.html')">
+                See all
+            </span>
+
+        </div>
+
+
+        <div class="transaction">
+
+            <div class="transaction-left">
+
+                <div class="transaction-icon">
+                    💰
+                </div>
+
+                <div>
+                    <h4>Account Deposit</h4>
+                    <small>Today</small>
+                </div>
+
+            </div>
+
+            <div class="amount plus">
+                +47,500 RWF
+            </div>
+
+        </div>
+
+
+        <div class="transaction">
+
+            <div class="transaction-left">
+
+                <div class="transaction-icon">
+                    ✅
+                </div>
+
+                <div>
+                    <h4>Account Status</h4>
+                    <small>Onafriq Mauritius</small>
+                </div>
+
+            </div>
+
+            <div class="amount plus">
+                Active
+            </div>
+
+        </div>
+
+
+        <div class="transaction">
+
+            <div class="transaction-left">
+
+                <div class="transaction-icon">
+                    📋
+                </div>
+
+                <div>
+                    <h4>Task Activity</h4>
+                    <small>Recent activity</small>
+                </div>
+
+            </div>
+
+            <div class="amount plus">
+                Completed
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- COMPLETE BOTTOM NAVIGATION -->
+    <nav class="bottom-nav">
+
+        <!-- HOME -->
+        <a href="dashboard.html"
+           class="nav-item active">
+
+            <div class="nav-icon">
+                🏠
+            </div>
+
+            Home
+
+        </a>
+
+
+        <!-- TASKS -->
+        <a href="tasks.html"
+           class="nav-item">
+
+            <div class="nav-icon">
+                📋
+            </div>
+
+            Tasks
+
+        </a>
+
+
+        <!-- DEPOSIT -->
+        <a href="investment.html"
+           class="nav-item">
+
+            <div class="nav-icon">
+                💰
+            </div>
+
+            Deposit
+
+        </a>
+
+
+        <!-- WITHDRAW -->
+        <a href="cashout.html"
+           class="nav-item">
+
+            <div class="nav-icon">
+                💸
+            </div>
+
+            Withdraw
+
+        </a>
+
+
+        <!-- TRANSACTIONS -->
+        <a href="transactions.html"
+           class="nav-item">
+
+            <div class="nav-icon">
+                📊
+            </div>
+
+            History
+
+        </a>
+
+
+        <!-- PROFILE -->
+        <a href="profile.html"
+           class="nav-item">
+
+            <div class="nav-icon">
+                👤
+            </div>
+
+            Profile
+
+        </a>
+
+    </nav>
 
 </div>
 
 
 <script>
 
-/* COPY */
-
-function copyText(text){
-
-    if(navigator.clipboard){
-
-        navigator.clipboard.writeText(text)
-        .then(function(){
-
-            alert("Copied successfully");
-
-        })
-        .catch(function(){
-
-            alert("Unable to copy");
-
-        });
-
-    }else{
-
-        alert("Copy is not supported in this Preview.");
-
-    }
-
-}
-
-
-/* CONFIRM PAYMENT */
-
-function confirmPayment(){
-
-    const transaction =
-        document
-        .getElementById("transaction")
-        .value
-        .trim();
-
-    const message =
-        document.getElementById("message");
-
-
-    if(transaction === ""){
-
-        alert("Please enter your Transaction ID.");
-
-        return;
-
-    }
-
-
-    /*
-      Save the transaction information
-      so it can be used on the Dashboard.
-    */
-
-    localStorage.setItem(
-        "transactionId",
-        transaction
-    );
-
-    localStorage.setItem(
-        "paymentSubmitted",
-        "true"
-    );
-
-
-    message.style.display = "block";
-
-    message.innerHTML =
-        "✓ Transaction ID submitted successfully. Opening Dashboard...";
-
-
-    /*
-      Acode Preview:
-      Dashboard = index.html
-    */
-
-    setTimeout(function(){
-
-        window.location.href = "index.html";
-
-    }, 500);
-
+function goTo(page){
+    window.location.href = page;
 }
 
 </script>
 
 </body>
 </html>
-
-Uko ubishyira muri Acode:
-
-1. Fungura folder ya project.
-2. Kora file yitwa "payment.html".
-3. Siba code yari irimo yose.
-4. Paste iyi code yose.
-5. Dashboard yawe uyite "index.html".
-6. Muri Preview, fungura "payment.html".
-7. Andika Transaction ID → Confirm Payment → izahita ijya kuri "index.html".
-
-Ibi bikora local navigation muri Acode Preview, aho kwishingikiriza kuri GitHub URL.
